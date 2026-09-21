@@ -1,0 +1,3620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nexa Digital Agency | Modern Digital Solutions</title>
+
+  <meta
+    name="description"
+    content="Nexa Digital Agency creates modern websites, landing pages, e-commerce experiences, and digital solutions for modern businesses."
+  >
+
+  <meta name="theme-color" content="#0F172A">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --bg: #0F172A;
+      --bg2: #111827;
+      --bg3: #162033;
+
+      --text: #FFFFFF;
+      --sub: #94A3B8;
+
+      --accent: #3B82F6;
+      --accent2: #60A5FA;
+
+      --border: rgba(148, 163, 184, 0.14);
+      --card: rgba(255, 255, 255, 0.035);
+
+      --success: #4ADE80;
+      --danger: #F87171;
+
+      --radius-sm: 10px;
+      --radius-md: 14px;
+      --radius-lg: 18px;
+      --radius-xl: 24px;
+
+      --container: 1180px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    .logo,
+    .number {
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 3px;
+    }
+
+    .wrap {
+      width: min(var(--container), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* =========================================================
+       HEADER
+    ========================================================= */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 22px 0;
+      transition:
+        background 0.3s ease,
+        padding 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    header.scrolled {
+      padding: 14px 0;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .logo span {
+      color: var(--accent2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      position: relative;
+      color: var(--sub);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================= */
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+
+      min-height: 46px;
+      padding: 11px 22px;
+
+      border-radius: 12px;
+      border: 1px solid transparent;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      white-space: nowrap;
+
+      transition:
+        transform 0.25s ease,
+        background 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(59, 130, 246, 0.28);
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--border);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent2);
+      color: var(--accent2);
+      transform: translateY(-2px);
+    }
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .hamburger span {
+      width: 21px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+
+      width: min(330px, 84%);
+      height: 100vh;
+
+      z-index: 1100;
+
+      padding: 100px 28px 30px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+
+      background: var(--bg2);
+      border-left: 1px solid var(--border);
+
+      transition: right 0.35s ease;
+    }
+
+    .mobile-menu.open {
+      right: 0;
+    }
+
+    .mobile-menu a {
+      font-size: 17px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .mobile-menu .btn {
+      width: 100%;
+    }
+
+    .close-menu {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+
+      width: 40px;
+      height: 40px;
+
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      color: var(--text);
+      font-size: 24px;
+    }
+
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 1050;
+
+      background: rgba(0, 0, 0, 0.55);
+
+      opacity: 0;
+      pointer-events: none;
+
+      transition: opacity 0.3s ease;
+    }
+
+    .menu-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* =========================================================
+       SECTIONS
+    ========================================================= */
+
+    section {
+      position: relative;
+      padding: 120px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 17px;
+
+      color: var(--accent2);
+
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .sec-head {
+      max-width: 650px;
+      margin-bottom: 55px;
+    }
+
+    .sec-head h2 {
+      margin-bottom: 15px;
+
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.15;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .sec-head p {
+      color: var(--sub);
+      font-size: 16px;
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+
+      padding: 170px 0 100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 8px 15px;
+
+      border: 1px solid var(--border);
+      border-radius: 100px;
+
+      background: var(--card);
+
+      color: var(--sub);
+      font-size: 13px;
+
+      margin-bottom: 26px;
+    }
+
+    .badge::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(59, 130, 246, 0.08);
+    }
+
+    .hero h1 {
+      max-width: 720px;
+
+      margin-bottom: 24px;
+
+      font-size: clamp(40px, 5.4vw, 64px);
+      line-height: 1.06;
+      letter-spacing: -1.5px;
+      font-weight: 800;
+    }
+
+    .hero h1 span {
+      color: var(--accent2);
+    }
+
+    .hero .lead {
+      max-width: 570px;
+
+      margin-bottom: 34px;
+
+      color: var(--sub);
+
+      font-size: 18px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       HERO VISUAL
+    ========================================================= */
+
+    .hero-visual {
+      position: relative;
+      height: 470px;
+    }
+
+    .hero-frame {
+      position: absolute;
+      inset: 40px 20px 40px 20px;
+
+      border: 1px solid var(--border);
+      border-radius: 24px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255,255,255,0.035),
+          rgba(255,255,255,0.015)
+        );
+
+      overflow: hidden;
+    }
+
+    .hero-frame::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      height: 1px;
+
+      background: rgba(96, 165, 250, 0.3);
+    }
+
+    .browser-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+
+      padding: 16px 18px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .browser-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.35);
+    }
+
+    .browser-content {
+      padding: 32px;
+    }
+
+    .browser-line {
+      width: 65%;
+      height: 9px;
+
+      border-radius: 10px;
+      background: rgba(148, 163, 184, 0.15);
+
+      margin-bottom: 14px;
+    }
+
+    .browser-line.short {
+      width: 42%;
+    }
+
+    .browser-boxes {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+
+      margin-top: 30px;
+    }
+
+    .browser-box {
+      height: 100px;
+
+      border: 1px solid var(--border);
+      border-radius: 12px;
+
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .float-card {
+      position: absolute;
+
+      border: 1px solid var(--border);
+      border-radius: 16px;
+
+      background: rgba(17, 24, 39, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      padding: 20px;
+
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    }
+
+    .fc1 {
+      top: 0;
+      right: 0;
+      width: 230px;
+    }
+
+    .fc2 {
+      left: 0;
+      bottom: 45px;
+      width: 205px;
+    }
+
+    .fc3 {
+      right: 25px;
+      bottom: 0;
+      width: 190px;
+    }
+
+    .fc-label {
+      color: var(--sub);
+      font-size: 12px;
+      margin-bottom: 9px;
+    }
+
+    .fc-value {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .fc-value span {
+      color: var(--accent2);
+    }
+
+    .fc-bar {
+      width: 100%;
+      height: 6px;
+
+      margin-top: 10px;
+
+      border-radius: 10px;
+      background: rgba(148, 163, 184, 0.12);
+
+      overflow: hidden;
+    }
+
+    .fc-bar i {
+      display: block;
+
+      width: 78%;
+      height: 100%;
+
+      border-radius: inherit;
+      background: var(--accent);
+    }
+
+    @keyframes floatCard {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .fc1 {
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    .fc2 {
+      animation: floatCard 7s ease-in-out infinite 0.5s;
+    }
+
+    .fc3 {
+      animation: floatCard 5.5s ease-in-out infinite 1s;
+    }
+
+    /* =========================================================
+       SERVICES
+    ========================================================= */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .s-card {
+      min-height: 220px;
+
+      padding: 30px 27px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      background: var(--card);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .s-card:hover {
+      transform: translateY(-6px);
+
+      border-color: rgba(59, 130, 246, 0.4);
+
+      background: rgba(59, 130, 246, 0.045);
+    }
+
+    .s-num {
+      margin-bottom: 18px;
+
+      color: var(--accent2);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .s-card h3 {
+      margin-bottom: 10px;
+
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .s-card p {
+      color: var(--sub);
+      font-size: 14.5px;
+    }
+
+    /* =========================================================
+       ABOUT
+    ========================================================= */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      margin-bottom: 18px;
+
+      font-size: clamp(30px, 3.6vw, 40px);
+      line-height: 1.15;
+    }
+
+    .about-text .lead {
+      max-width: 540px;
+
+      margin-bottom: 35px;
+
+      color: var(--sub);
+      font-size: 16px;
+    }
+
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 25px;
+    }
+
+    .feature h4 {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+
+      margin-bottom: 7px;
+
+      font-size: 15px;
+    }
+
+    .feature h4::before {
+      content: "";
+
+      width: 8px;
+      height: 8px;
+
+      flex-shrink: 0;
+
+      border-radius: 3px;
+      background: var(--accent);
+    }
+
+    .feature p {
+      color: var(--sub);
+      font-size: 13.5px;
+    }
+
+    .about-visual {
+      padding: 32px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+
+      background: var(--bg2);
+    }
+
+    .about-visual-title {
+      margin-bottom: 20px;
+
+      color: var(--sub);
+
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .stat-mini {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 19px 0;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat-mini:last-child {
+      border-bottom: none;
+    }
+
+    .stat-mini span {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .stat-mini b {
+      color: var(--accent2);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       TRUST / CAPABILITIES
+    ========================================================= */
+
+    .trust-band {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+
+      background: var(--bg2);
+
+      padding: 60px 0;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .trust-item {
+      text-align: center;
+    }
+
+    .trust-item strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--text);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 17px;
+    }
+
+    .trust-item span {
+      color: var(--sub);
+      font-size: 13px;
+    }
+
+    /* =========================================================
+       PROCESS
+    ========================================================= */
+
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+
+      position: relative;
+    }
+
+    .process-row::before {
+      content: "";
+
+      position: absolute;
+
+      top: 26px;
+      left: 55px;
+      right: 55px;
+
+      height: 1px;
+
+      background: var(--border);
+    }
+
+    .p-step {
+      position: relative;
+    }
+
+    .p-num {
+      position: relative;
+      z-index: 2;
+
+      width: 52px;
+      height: 52px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 20px;
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      background: var(--bg2);
+
+      color: var(--accent2);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .p-step h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+    }
+
+    .p-step p {
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    /* =========================================================
+       PROJECTS
+    ========================================================= */
+
+    .proj-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 23px;
+    }
+
+    .p-card {
+      overflow: hidden;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      background: var(--card);
+
+      transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .p-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+
+    .p-thumb {
+      position: relative;
+
+      height: 175px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+
+      background: var(--bg3);
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .p-thumb::before {
+      content: "";
+
+      position: absolute;
+
+      width: 170px;
+      height: 170px;
+
+      border-radius: 50%;
+
+      background: rgba(59, 130, 246, 0.08);
+
+      transform: translate(-25px, -30px);
+    }
+
+    .p-thumb-content {
+      position: relative;
+      z-index: 1;
+
+      text-align: center;
+      padding: 0 20px;
+    }
+
+    .p-thumb-content strong {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: rgba(255,255,255,0.9);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 16px;
+    }
+
+    .p-thumb-content span {
+      color: var(--sub);
+      font-size: 11px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .p-body {
+      padding: 24px;
+    }
+
+    .p-cat {
+      margin-bottom: 8px;
+
+      color: var(--accent2);
+
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .p-body h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .p-body p {
+      min-height: 68px;
+
+      margin-bottom: 18px;
+
+      color: var(--sub);
+      font-size: 14px;
+    }
+
+    .project-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .p-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+
+      color: var(--text);
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition: color 0.2s ease;
+    }
+
+    .p-link:hover {
+      color: var(--accent2);
+    }
+
+    /* =========================================================
+       TESTIMONIALS
+    ========================================================= */
+
+    .test-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 23px;
+    }
+
+    .t-card {
+      padding: 30px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      background: var(--card);
+    }
+
+    .t-quote {
+      margin-bottom: 12px;
+
+      color: var(--accent2);
+
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-size: 30px;
+    }
+
+    .t-card .body {
+      margin-bottom: 24px;
+
+      color: #E2E8F0;
+      font-size: 14.5px;
+    }
+
+    .t-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      flex-shrink: 0;
+
+      border: 1px solid var(--border);
+      border-radius: 50%;
+
+      background: var(--bg3);
+
+      color: var(--accent2);
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .t-person b {
+      display: block;
+      font-size: 13px;
+    }
+
+    .t-person span {
+      color: var(--sub);
+      font-size: 12px;
+    }
+
+    .demo-note {
+      max-width: 700px;
+
+      margin: 28px auto 0;
+
+      color: var(--sub);
+
+      text-align: center;
+
+      font-size: 12.5px;
+    }
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .cta-section {
+      padding-top: 0;
+    }
+
+    .cta-inner {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 70px 45px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+
+      background: var(--bg2);
+
+      text-align: center;
+    }
+
+    .cta-inner::before {
+      content: "";
+
+      position: absolute;
+
+      width: 260px;
+      height: 260px;
+
+      top: -120px;
+      right: -80px;
+
+      border-radius: 50%;
+
+      background: rgba(59, 130, 246, 0.08);
+    }
+
+    .cta-inner h2,
+    .cta-inner p,
+    .cta-actions {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-inner h2 {
+      margin-bottom: 13px;
+
+      font-size: clamp(28px, 3.5vw, 40px);
+    }
+
+    .cta-inner p {
+      margin-bottom: 30px;
+
+      color: var(--sub);
+      font-size: 16px;
+    }
+
+    .cta-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .contact-title {
+      margin-bottom: 14px;
+
+      font-size: clamp(30px, 3.6vw, 40px);
+      line-height: 1.15;
+    }
+
+    .contact-lead {
+      max-width: 480px;
+
+      margin-bottom: 30px;
+
+      color: var(--sub);
+      font-size: 15.5px;
+    }
+
+    .info-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .info-card {
+      padding: 20px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+
+      background: var(--card);
+    }
+
+    .info-card small {
+      display: block;
+
+      margin-bottom: 5px;
+
+      color: var(--sub);
+      font-size: 12px;
+    }
+
+    .info-card a,
+    .info-card span {
+      color: var(--text);
+      font-size: 14.5px;
+      font-weight: 600;
+    }
+
+    .info-card a:hover {
+      color: var(--accent2);
+    }
+
+    /* =========================================================
+       FORM
+    ========================================================= */
+
+    .contact-form {
+      padding: 30px;
+
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+
+      background: var(--card);
+    }
+
+    .field {
+      margin-bottom: 18px;
+    }
+
+    .field label {
+      display: block;
+
+      margin-bottom: 7px;
+
+      color: var(--sub);
+
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+
+      padding: 13px 15px;
+
+      border: 1px solid var(--border);
+      border-radius: 10px;
+
+      outline: none;
+
+      background: var(--bg2);
+      color: var(--text);
+
+      font-size: 14px;
+
+      transition: border-color 0.2s ease;
+    }
+
+    .field input::placeholder,
+    .field textarea::placeholder {
+      color: #64748B;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .field textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .field .error {
+      display: none;
+
+      margin-top: 5px;
+
+      color: var(--danger);
+
+      font-size: 12px;
+    }
+
+    .field.invalid input,
+    .field.invalid select,
+    .field.invalid textarea {
+      border-color: var(--danger);
+    }
+
+    .field.invalid .error {
+      display: block;
+    }
+
+    .form-success {
+      display: none;
+
+      margin-bottom: 18px;
+      padding: 14px 16px;
+
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      border-radius: 10px;
+
+      background: rgba(74, 222, 128, 0.08);
+
+      color: var(--success);
+
+      font-size: 13px;
+    }
+
+    .form-success.show {
+      display: block;
+    }
+
+    .form-error {
+      display: none;
+
+      margin-bottom: 18px;
+      padding: 14px 16px;
+
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      border-radius: 10px;
+
+      background: rgba(248, 113, 113, 0.08);
+
+      color: var(--danger);
+
+      font-size: 13px;
+    }
+
+    .form-error.show {
+      display: block;
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================= */
+
+    footer {
+      padding: 70px 0 30px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      max-width: 270px;
+
+      margin-top: 14px;
+
+      color: var(--sub);
+      font-size: 13.5px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 17px;
+
+      font-size: 13px;
+    }
+
+    .footer-col a {
+      display: block;
+
+      margin-bottom: 11px;
+
+      color: var(--sub);
+
+      font-size: 13.5px;
+
+      transition: color 0.2s ease;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent2);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding-top: 25px;
+
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-bottom p {
+      color: var(--sub);
+      font-size: 12.5px;
+    }
+
+    .footer-legal {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-legal a {
+      color: var(--sub);
+      font-size: 12.5px;
+    }
+
+    .footer-legal a:hover {
+      color: var(--accent2);
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+
+      transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       RESPONSIVE
+    ========================================================= */
+
+    @media (max-width: 1000px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .hero {
+        padding-top: 145px;
+      }
+
+      .hero-visual {
+        max-width: 650px;
+        width: 100%;
+        margin-inline: auto;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .services-grid,
+      .proj-grid,
+      .test-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 30px;
+      }
+
+      .process-row::before {
+        display: none;
+      }
+
+      .footer-top {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .wrap {
+        width: min(var(--container), calc(100% - 34px));
+      }
+
+      section {
+        padding: 85px 0;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 135px 0 70px;
+      }
+
+      .hero h1 {
+        font-size: clamp(37px, 11vw, 52px);
+      }
+
+      .hero .lead {
+        font-size: 16px;
+      }
+
+      .hero-visual {
+        height: 350px;
+      }
+
+      .hero-frame {
+        inset: 30px 8px;
+      }
+
+      .browser-content {
+        padding: 22px;
+      }
+
+      .fc1 {
+        width: 185px;
+        right: -4px;
+      }
+
+      .fc2 {
+        width: 170px;
+        left: -4px;
+        bottom: 25px;
+      }
+
+      .fc3 {
+        width: 160px;
+        right: 5px;
+        bottom: -4px;
+      }
+
+      .services-grid,
+      .proj-grid,
+      .test-grid,
+      .feature-list,
+      .process-row {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 15px;
+      }
+
+      .p-body p {
+        min-height: auto;
+      }
+
+      .cta-inner {
+        padding: 50px 24px;
+      }
+
+      .contact-form {
+        padding: 22px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-legal {
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 420px) {
+
+      .nav-cta .btn {
+        display: none;
+      }
+
+      .hero-actions .btn,
+      .cta-actions .btn {
+        width: 100%;
+      }
+
+      .hero-visual {
+        height: 320px;
+      }
+
+      .float-card {
+        padding: 15px;
+      }
+
+      .fc1 {
+        width: 165px;
+      }
+
+      .fc2 {
+        width: 155px;
+      }
+
+      .fc3 {
+        width: 145px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header id="siteHeader">
+
+    <div class="wrap nav">
+
+      <a href="#home" class="logo" aria-label="Nexa Digital Agency home">
+        NEXA<span>.</span>
+      </a>
+
+      <ul class="nav-links">
+
+        <li>
+          <a href="#home" class="active">Home</a>
+        </li>
+
+        <li>
+          <a href="#services">Services</a>
+        </li>
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#process">Process</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+          <a href="#testimonials">Testimonials</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
+      </ul>
+
+      <div class="nav-cta">
+
+        <a href="#contact" class="btn btn-primary">
+          Let's Talk
+        </a>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- MOBILE MENU -->
+
+  <div class="menu-overlay" id="overlay"></div>
+
+  <nav
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-label="Mobile navigation"
+  >
+
+    <button
+      class="close-menu"
+      id="closeMenu"
+      aria-label="Close navigation menu"
+    >
+      &times;
+    </button>
+
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#process">Process</a>
+    <a href="#projects">Projects</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+
+    <a
+      href="#contact"
+      class="btn btn-primary"
+      style="margin-top: 8px;"
+    >
+      Let's Talk
+    </a>
+
+  </nav>
+
+
+  <!-- =======================================================
+       MAIN
+  ======================================================== -->
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="home">
+
+      <div class="wrap hero-grid">
+
+        <div>
+
+          <div class="badge">
+            Digital Solutions for Modern Businesses
+          </div>
+
+          <h1>
+            We Build Digital Experiences
+            <span>That Drive Growth.</span>
+          </h1>
+
+          <p class="lead">
+            We design and develop modern websites, landing pages,
+            and digital experiences that help businesses build
+            credibility, connect with customers, and grow online.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              href="#contact"
+              class="btn btn-primary"
+            >
+              Start a Project
+            </a>
+
+            <a
+              href="#projects"
+              class="btn btn-secondary"
+            >
+              View Our Work
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- HERO VISUAL -->
+
+        <div class="hero-visual">
+
+          <div class="hero-frame">
+
+            <div class="browser-top">
+
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+              <div class="browser-dot"></div>
+
+            </div>
+
+            <div class="browser-content">
+
+              <div class="browser-line"></div>
+              <div class="browser-line short"></div>
+
+              <div class="browser-boxes">
+
+                <div class="browser-box"></div>
+                <div class="browser-box"></div>
+                <div class="browser-box"></div>
+                <div class="browser-box"></div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="float-card fc1">
+
+            <div class="fc-label">
+              Modern Development
+            </div>
+
+            <div class="fc-value">
+              <span>Responsive</span>
+            </div>
+
+            <div class="fc-bar">
+              <i></i>
+            </div>
+
+          </div>
+
+
+          <div class="float-card fc2">
+
+            <div class="fc-label">
+              Design Approach
+            </div>
+
+            <div class="fc-value">
+              UI / UX
+            </div>
+
+          </div>
+
+
+          <div class="float-card fc3">
+
+            <div class="fc-label">
+              Digital Focus
+            </div>
+
+            <div class="fc-value">
+              Business
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="services">
+
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+
+          <div class="eyebrow">
+            Our Services
+          </div>
+
+          <h2>
+            Digital solutions built for modern businesses
+          </h2>
+
+          <p>
+            Practical digital services focused on design,
+            development, usability, and business requirements.
+          </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+          <article class="s-card reveal">
+
+            <div class="s-num">01</div>
+
+            <h3>
+              Web Development
+            </h3>
+
+            <p>
+              Modern, responsive websites built for businesses,
+              startups, and professional brands.
+            </p>
+
+          </article>
+
+
+          <article class="s-card reveal">
+
+            <div class="s-num">02</div>
+
+            <h3>
+              UI/UX Design
+            </h3>
+
+            <p>
+              Clean and intuitive interfaces designed around
+              users, usability, and business goals.
+            </p>
+
+          </article>
+
+
+          <article class="s-card reveal">
+
+            <div class="s-num">03</div>
+
+            <h3>
+              Landing Pages
+            </h3>
+
+            <p>
+              Focused landing pages designed to communicate
+              products, services, and ideas clearly.
+            </p>
+
+          </article>
+
+
+          <article class="s-card reveal">
+
+            <div class="s-num">04</div>
+
+            <h3>
+              E-Commerce
+            </h3>
+
+            <p>
+              Modern storefront experiences focused on product
+              presentation, navigation, and usability.
+            </p>
+
+          </article>
+
+
+          <article class="s-card reveal">
+
+            <div class="s-num">05</div>
+
+            <h3>
+              Branding
+            </h3>
+
+            <p>
+              Consistent visual systems that help businesses
+              communicate a professional identity.
+            </p>
+
+          </article>
+
+
+          <article class="s-card reveal">
+
+            <div class="s-num">06</div>
+
+            <h3>
+              Digital Solutions
+            </h3>
+
+            <p>
+              Custom digital experiences designed around specific
+              project requirements and objectives.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+      <div class="wrap about-grid">
+
+        <div class="about-text reveal">
+
+          <div class="eyebrow">
+            Why Nexa
+          </div>
+
+          <h2>
+            Built around your goals
+          </h2>
+
+          <p class="lead">
+            We combine design, development, and business thinking
+            to create digital experiences that are useful,
+            responsive, scalable, and easy to use.
+          </p>
+
+
+          <div class="feature-list">
+
+            <div class="feature">
+
+              <h4>
+                Modern Technology
+              </h4>
+
+              <p>
+                We use current web technologies and development
+                practices for modern digital experiences.
+              </p>
+
+            </div>
+
+
+            <div class="feature">
+
+              <h4>
+                User Focused
+              </h4>
+
+              <p>
+                Interfaces are designed to be clear, intuitive,
+                accessible, and easy to navigate.
+              </p>
+
+            </div>
+
+
+            <div class="feature">
+
+              <h4>
+                Business Driven
+              </h4>
+
+              <p>
+                Project decisions are connected to the actual
+                needs and objectives of the business.
+              </p>
+
+            </div>
+
+
+            <div class="feature">
+
+              <h4>
+                Quality First
+              </h4>
+
+              <p>
+                We focus on responsive layouts, clean interfaces,
+                performance, and attention to detail.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="about-visual reveal">
+
+          <div class="about-visual-title">
+            What we focus on
+          </div>
+
+          <div class="stat-mini">
+
+            <span>
+              Responsive Design
+            </span>
+
+            <b>
+              Mobile First
+            </b>
+
+          </div>
+
+
+          <div class="stat-mini">
+
+            <span>
+              Development
+            </span>
+
+            <b>
+              Modern Web
+            </b>
+
+          </div>
+
+
+          <div class="stat-mini">
+
+            <span>
+              User Experience
+            </span>
+
+            <b>
+              UI / UX
+            </b>
+
+          </div>
+
+
+          <div class="stat-mini">
+
+            <span>
+              Project Approach
+            </span>
+
+            <b>
+              Goal Focused
+            </b>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TRUST / CAPABILITIES -->
+
+    <div class="trust-band">
+
+      <div class="wrap trust-grid">
+
+        <div class="trust-item reveal">
+          <strong>Responsive</strong>
+          <span>Desktop, tablet & mobile</span>
+        </div>
+
+        <div class="trust-item reveal">
+          <strong>Modern UI</strong>
+          <span>Clean digital interfaces</span>
+        </div>
+
+        <div class="trust-item reveal">
+          <strong>Performance</strong>
+          <span>Lightweight experiences</span>
+        </div>
+
+        <div class="trust-item reveal">
+          <strong>User Focused</strong>
+          <span>Clear and intuitive layouts</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- PROCESS -->
+
+    <section id="process">
+
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+
+          <div class="eyebrow">
+            How We Work
+          </div>
+
+          <h2>
+            A simple, effective process
+          </h2>
+
+          <p>
+            A clear workflow that takes a project from an initial
+            idea to a polished digital experience.
+          </p>
+
+        </div>
+
+
+        <div class="process-row">
+
+          <div class="p-step reveal">
+
+            <div class="p-num">
+              01
+            </div>
+
+            <h3>
+              Discover
+            </h3>
+
+            <p>
+              Understand the business, audience, goals,
+              requirements, and project scope.
+            </p>
+
+          </div>
+
+
+          <div class="p-step reveal">
+
+            <div class="p-num">
+              02
+            </div>
+
+            <h3>
+              Design
+            </h3>
+
+            <p>
+              Create the visual direction, layout, hierarchy,
+              and user experience.
+            </p>
+
+          </div>
+
+
+          <div class="p-step reveal">
+
+            <div class="p-num">
+              03
+            </div>
+
+            <h3>
+              Develop
+            </h3>
+
+            <p>
+              Build the responsive website using suitable
+              modern web technologies.
+            </p>
+
+          </div>
+
+
+          <div class="p-step reveal">
+
+            <div class="p-num">
+              04
+            </div>
+
+            <h3>
+              Launch
+            </h3>
+
+            <p>
+              Test, optimize, review, and prepare the final
+              website for deployment.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+
+          <div class="eyebrow">
+            Selected Work
+          </div>
+
+          <h2>
+            A look at our projects
+          </h2>
+
+          <p>
+            A selection of website concepts and digital
+            experiences created for our portfolio.
+          </p>
+
+        </div>
+
+
+        <div class="proj-grid" id="projGrid"></div>
+
+      </div>
+
+    </section>
+
+
+    <!-- TESTIMONIALS -->
+
+    <section id="testimonials">
+
+      <div class="wrap">
+
+        <div class="sec-head reveal">
+
+          <div class="eyebrow">
+            Example Feedback
+          </div>
+
+          <h2>
+            What clients could value
+          </h2>
+
+          <p>
+            Example testimonial layouts for the agency website.
+            Real client feedback should be added when available.
+          </p>
+
+        </div>
+
+
+        <div class="test-grid">
+
+          <article class="t-card reveal">
+
+            <div class="t-quote">
+              &#8220;
+            </div>
+
+            <p class="body">
+              The website process was clear, organized, and
+              focused on creating a professional online presence.
+            </p>
+
+            <div class="t-person">
+
+              <div class="avatar">
+                BO
+              </div>
+
+              <div>
+                <b>Business Owner</b>
+                <span>Example testimonial</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="t-card reveal">
+
+            <div class="t-quote">
+              &#8220;
+            </div>
+
+            <p class="body">
+              The interface was clean, responsive, and easy
+              for our customers to navigate.
+            </p>
+
+            <div class="t-person">
+
+              <div class="avatar">
+                SF
+              </div>
+
+              <div>
+                <b>Startup Founder</b>
+                <span>Example testimonial</span>
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <article class="t-card reveal">
+
+            <div class="t-quote">
+              &#8220;
+            </div>
+
+            <p class="body">
+              The project focused strongly on usability,
+              presentation, and attention to detail.
+            </p>
+
+            <div class="t-person">
+
+              <div class="avatar">
+                PM
+              </div>
+
+              <div>
+                <b>Project Manager</b>
+                <span>Example testimonial</span>
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+
+        <p class="demo-note">
+          These are placeholder examples for the website design.
+          Replace them with genuine client testimonials when you
+          have verified reviews.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta-section">
+
+      <div class="wrap">
+
+        <div class="cta-inner reveal">
+
+          <h2>
+            Have a Project in Mind?
+          </h2>
+
+          <p>
+            Let's turn your idea into a modern digital experience.
+          </p>
+
+          <div class="cta-actions">
+
+            <a
+              href="#contact"
+              class="btn btn-primary"
+            >
+              Start a Conversation
+            </a>
+
+            <a
+              href="#services"
+              class="btn btn-secondary"
+            >
+              View Our Services
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+      <div class="wrap contact-grid">
+
+        <div class="reveal">
+
+          <div class="eyebrow">
+            Contact
+          </div>
+
+          <h2 class="contact-title">
+            Let's Build Something Great
+          </h2>
+
+          <p class="contact-lead">
+            Have a project, idea, or business website in mind?
+            Tell us about it and let's start the conversation.
+          </p>
+
+
+          <div class="info-cards">
+
+            <div class="info-card">
+
+              <small>
+                Email
+              </small>
+
+              <a href="mailto:jamiljaffar27@gmail.com">
+                jamiljaffar27@gmail.com
+              </a>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <small>
+                Location
+              </small>
+
+              <span>
+                Pakistan
+              </span>
+
+            </div>
+
+
+            <div class="info-card">
+
+              <small>
+                Availability
+              </small>
+
+              <span>
+                Open for project inquiries
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="reveal">
+
+          <div
+            class="form-success"
+            id="formSuccess"
+            role="status"
+            aria-live="polite"
+          >
+            Your message has been sent successfully.
+            Thank you for contacting Nexa Digital Agency.
+          </div>
+
+          <div
+            class="form-error"
+            id="formError"
+            role="alert"
+            aria-live="assertive"
+          >
+            Something went wrong while sending your message.
+            Please try again.
+          </div>
+
+
+          <!-- =====================================================
+               FORMSPREE-CONNECTED CONTACT FORM
+
+               Formspree Endpoint:
+               https://formspree.io/f/mnpnndjw
+
+               Formspree account email:
+               jamiljaffar27@gmail.com
+               ===================================================== -->
+
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/mnpnndjw"
+            method="POST"
+            novalidate
+          >
+
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Project Inquiry - Nexa Digital Agency"
+            >
+
+            <div
+              class="field"
+              id="f-name"
+            >
+
+              <label for="name">
+                Full Name
+              </label>
+
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your full name"
+                autocomplete="name"
+                required
+              >
+
+              <div class="error">
+                Please enter your full name.
+              </div>
+
+            </div>
+
+
+            <div
+              class="field"
+              id="f-email"
+            >
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@company.com"
+                autocomplete="email"
+                required
+              >
+
+              <div class="error">
+                Please enter a valid email address.
+              </div>
+
+            </div>
+
+
+            <div
+              class="field"
+              id="f-company"
+            >
+
+              <label for="company">
+                Company / Business
+              </label>
+
+              <input
+                type="text"
+                id="company"
+                name="company"
+                placeholder="Your business name"
+                autocomplete="organization"
+              >
+
+            </div>
+
+
+            <div
+              class="field"
+              id="f-type"
+            >
+
+              <label for="type">
+                Project Type
+              </label>
+
+              <select
+                id="type"
+                name="project_type"
+                required
+              >
+
+                <option value="">
+                  Select a project type
+                </option>
+
+                <option value="Web Development">
+                  Web Development
+                </option>
+
+                <option value="UI/UX Design">
+                  UI/UX Design
+                </option>
+
+                <option value="Landing Page">
+                  Landing Page
+                </option>
+
+                <option value="E-Commerce">
+                  E-Commerce
+                </option>
+
+                <option value="Branding">
+                  Branding
+                </option>
+
+                <option value="Other">
+                  Other
+                </option>
+
+              </select>
+
+              <div class="error">
+                Please select a project type.
+              </div>
+
+            </div>
+
+
+            <div
+              class="field"
+              id="f-message"
+            >
+
+              <label for="message">
+                Message
+              </label>
+
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Tell us about your project..."
+                required
+              ></textarea>
+
+              <div class="error">
+                Please tell us a bit about your project.
+              </div>
+
+            </div>
+
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="submitButton"
+              style="width: 100%;"
+            >
+              Send Message
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="wrap">
+
+      <div class="footer-top">
+
+        <div class="footer-brand">
+
+          <div class="logo">
+            NEXA<span>.</span>
+          </div>
+
+          <p>
+            Modern digital solutions for businesses that want
+            to build a strong online presence.
+          </p>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Company
+          </h4>
+
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#services">
+            Services
+          </a>
+
+          <a href="#projects">
+            Projects
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Services
+          </h4>
+
+          <a href="#services">
+            Web Development
+          </a>
+
+          <a href="#services">
+            UI/UX Design
+          </a>
+
+          <a href="#services">
+            Landing Pages
+          </a>
+
+          <a href="#services">
+            E-Commerce
+          </a>
+
+        </div>
+
+
+        <div class="footer-col">
+
+          <h4>
+            Connect
+          </h4>
+
+          <a href="mailto:jamiljaffar27@gmail.com">
+            Email
+          </a>
+
+          <!-- Add real social profiles later -->
+
+          <a href="#" aria-label="Nexa Instagram">
+            Instagram
+          </a>
+
+          <a href="#" aria-label="Nexa LinkedIn">
+            LinkedIn
+          </a>
+
+          <a href="#" aria-label="Nexa GitHub">
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <p>
+          &copy; 2026 Nexa Digital Agency. All rights reserved.
+        </p>
+
+        <div class="footer-legal">
+
+          <a href="#">
+            Privacy Policy
+          </a>
+
+          <a href="#">
+            Terms of Service
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
+  <script>
+
+    /* =======================================================
+       NAVBAR
+    ======================================================== */
+
+    const header =
+      document.getElementById("siteHeader");
+
+    window.addEventListener("scroll", () => {
+
+      header.classList.toggle(
+        "scrolled",
+        window.scrollY > 40
+      );
+
+    });
+
+
+    /* =======================================================
+       MOBILE MENU
+    ======================================================== */
+
+    const hamburger =
+      document.getElementById("hamburger");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const overlay =
+      document.getElementById("overlay");
+
+    const closeMenu =
+      document.getElementById("closeMenu");
+
+
+    function openMenu() {
+
+      mobileMenu.classList.add("open");
+      overlay.classList.add("open");
+
+      document.body.classList.add("menu-open");
+
+      hamburger.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+
+    }
+
+
+    function shutMenu() {
+
+      mobileMenu.classList.remove("open");
+      overlay.classList.remove("open");
+
+      document.body.classList.remove("menu-open");
+
+      hamburger.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    }
+
+
+    hamburger.addEventListener(
+      "click",
+      openMenu
+    );
+
+    closeMenu.addEventListener(
+      "click",
+      shutMenu
+    );
+
+    overlay.addEventListener(
+      "click",
+      shutMenu
+    );
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          shutMenu
+        );
+
+      });
+
+
+    /* =======================================================
+       ESCAPE KEY
+    ======================================================== */
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape" &&
+          mobileMenu.classList.contains("open")
+        ) {
+
+          shutMenu();
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       REVEAL ANIMATIONS
+    ======================================================== */
+
+    const revealEls =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              entry.target.classList.add("in");
+
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: 0.12
+        }
+
+      );
+
+
+    revealEls.forEach(element => {
+
+      revealObserver.observe(element);
+
+    });
+
+
+    /* =======================================================
+       PROJECT DATA
+    ======================================================== */
+
+    const projects = [
+
+      {
+        name: "Brew & Bean Cafe",
+        cat: "Business Website",
+        desc:
+          "A warm and modern cafe website designed to showcase the brand, menu, services, and customer experience.",
+        live:
+          "https://brew-bean-cafe-khaki.vercel.app",
+        github:
+          "https://github.com/123jamil285/brew-bean-cafe"
+      },
+
+      {
+        name: "Nexa Agency",
+        cat: "Landing Page",
+        desc:
+          "A modern digital agency landing page focused on responsive design, services, projects, and business communication.",
+        live: "",
+        github: ""
+      },
+
+      {
+        name: "Restaurant Menu UI",
+        cat: "UI Design",
+        desc:
+          "A clean restaurant menu interface concept designed for simple navigation and smooth browsing.",
+        live: "",
+        github: ""
+      },
+
+      {
+        name: "E-Commerce Storefront",
+        cat: "Business Website",
+        desc:
+          "A modern storefront concept focused on product presentation, navigation, and user experience.",
+        live: "",
+        github: ""
+      },
+
+      {
+        name: "SaaS Product Landing",
+        cat: "Landing Page",
+        desc:
+          "A modern SaaS landing page concept designed to communicate product value and key features clearly.",
+        live: "",
+        github: ""
+      },
+
+      {
+        name: "Dashboard UI Concept",
+        cat: "UI Design",
+        desc:
+          "A clean dashboard interface concept designed for modern digital products and data-driven experiences.",
+        live: "",
+        github: ""
+      }
+
+    ];
+
+
+    /* =======================================================
+       PROJECT RENDERING
+    ======================================================== */
+
+    const grid =
+      document.getElementById("projGrid");
+
+
+    grid.innerHTML = projects.map(
+      project => {
+
+        const liveButton =
+          project.live
+            ? `
+              <a
+                href="${project.live}"
+                class="p-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open live demo for ${project.name}"
+              >
+                Live Demo →
+              </a>
+            `
+            : "";
+
+
+        const githubButton =
+          project.github
+            ? `
+              <a
+                href="${project.github}"
+                class="p-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open GitHub repository for ${project.name}"
+              >
+                GitHub →
+              </a>
+            `
+            : "";
+
+
+        return `
+
+          <article class="p-card reveal">
+
+            <div class="p-thumb">
+
+              <div class="p-thumb-content">
+
+                <strong>
+                  ${project.name}
+                </strong>
+
+                <span>
+                  ${project.cat}
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <div class="p-body">
+
+              <div class="p-cat">
+                ${project.cat}
+              </div>
+
+              <h3>
+                ${project.name}
+              </h3>
+
+              <p>
+                ${project.desc}
+              </p>
+
+              ${
+                liveButton || githubButton
+                  ? `
+                    <div class="project-actions">
+                      ${liveButton}
+                      ${githubButton}
+                    </div>
+                  `
+                  : ""
+              }
+
+            </div>
+
+          </article>
+
+        `;
+
+      }
+    ).join("");
+
+
+    grid
+      .querySelectorAll(".reveal")
+      .forEach(element => {
+
+        revealObserver.observe(element);
+
+      });
+
+
+    /* =======================================================
+       CONTACT FORM — FORMSPREE
+    ======================================================== */
+
+    const form =
+      document.getElementById("contactForm");
+
+    const successBox =
+      document.getElementById("formSuccess");
+
+    const errorBox =
+      document.getElementById("formError");
+
+    const submitButton =
+      document.getElementById("submitButton");
+
+
+    form.addEventListener(
+      "submit",
+      async event => {
+
+        event.preventDefault();
+
+
+        successBox.classList.remove("show");
+        errorBox.classList.remove("show");
+
+
+        let valid = true;
+
+
+        const name =
+          document.getElementById("name");
+
+        const email =
+          document.getElementById("email");
+
+        const type =
+          document.getElementById("type");
+
+        const message =
+          document.getElementById("message");
+
+
+        const checks = [
+
+          {
+            id: "f-name",
+            element: name,
+            test:
+              value =>
+                value.trim().length > 1
+          },
+
+          {
+            id: "f-email",
+            element: email,
+            test:
+              value =>
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+                  value
+                )
+          },
+
+          {
+            id: "f-type",
+            element: type,
+            test:
+              value =>
+                value !== ""
+          },
+
+          {
+            id: "f-message",
+            element: message,
+            test:
+              value =>
+                value.trim().length > 5
+          }
+
+        ];
+
+
+        checks.forEach(check => {
+
+          const field =
+            document.getElementById(
+              check.id
+            );
+
+          const isValid =
+            check.test(
+              check.element.value
+            );
+
+
+          field.classList.toggle(
+            "invalid",
+            !isValid
+          );
+
+
+          if (!isValid) {
+            valid = false;
+          }
+
+        });
+
+
+        if (!valid) {
+
+          const firstInvalid =
+            document.querySelector(
+              ".field.invalid input, .field.invalid select, .field.invalid textarea"
+            );
+
+          if (firstInvalid) {
+            firstInvalid.focus();
+          }
+
+          return;
+
+        }
+
+
+        /* =====================================================
+           SEND DIRECTLY TO FORMSPREE
+
+           The visitor does NOT need Gmail, Outlook, or any
+           other email application.
+        ===================================================== */
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
+
+
+        try {
+
+          const formData =
+            new FormData(form);
+
+
+          /* Dynamic email subject */
+
+          formData.set(
+            "_subject",
+            `New ${type.value} Inquiry from ${name.value.trim()}`
+          );
+
+
+          const response =
+            await fetch(
+              form.action,
+              {
+                method: "POST",
+                body: formData,
+                headers: {
+                  "Accept": "application/json"
+                }
+              }
+            );
+
+
+          if (response.ok) {
+
+            successBox.classList.add("show");
+
+            form.reset();
+
+
+            document
+              .querySelectorAll(".field.invalid")
+              .forEach(field => {
+
+                field.classList.remove("invalid");
+
+              });
+
+
+            successBox.scrollIntoView({
+              behavior: "smooth",
+              block: "center"
+            });
+
+          } else {
+
+            let errorMessage =
+              "Something went wrong while sending your message. Please try again.";
+
+            try {
+
+              const data =
+                await response.json();
+
+              if (
+                data &&
+                data.errors &&
+                data.errors.length
+              ) {
+
+                errorMessage =
+                  data.errors
+                    .map(item => item.message)
+                    .join(" ");
+
+              }
+
+            } catch (parseError) {
+              /* Keep default error message */
+            }
+
+
+            errorBox.textContent =
+              errorMessage;
+
+            errorBox.classList.add("show");
+
+          }
+
+        } catch (error) {
+
+          errorBox.textContent =
+            "Unable to send your message right now. Please check your internet connection and try again.";
+
+          errorBox.classList.add("show");
+
+        } finally {
+
+          submitButton.disabled = false;
+          submitButton.textContent = "Send Message";
+
+        }
+
+      }
+    );
+
+
+    /* =======================================================
+       ACTIVE NAVIGATION
+    ======================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        "main section[id]"
+      );
+
+    const navLinks =
+      document.querySelectorAll(
+        ".nav-links a"
+      );
+
+
+    const activeObserver =
+      new IntersectionObserver(
+
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+              const id =
+                entry.target.getAttribute(
+                  "id"
+                );
+
+
+              navLinks.forEach(link => {
+
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute(
+                    "href"
+                  ) === `#${id}`
+                );
+
+              });
+
+            }
+
+          });
+
+        },
+
+        {
+          rootMargin:
+            "-35% 0px -55% 0px"
+        }
+
+      );
+
+
+    sections.forEach(section => {
+
+      activeObserver.observe(section);
+
+    });
+
+  </script>
+
+</body>
+</html>
+```
